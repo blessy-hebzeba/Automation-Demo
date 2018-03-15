@@ -1,6 +1,5 @@
 import { Given, When, Then } from 'cucumber';
-import addToCartPage from '../functions/addToCart.page';
-import loginPage from '../functions/login.page';
+import addToCartPage from '../pages/addToCart.page';
 
 Given(/^User goes to the Home Page$/, () => {
   addToCartPage.goToHomePage();

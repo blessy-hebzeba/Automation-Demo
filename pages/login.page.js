@@ -7,7 +7,8 @@ class loginPage extends Page {
   /*
     define elements
   */
-  get emailField () { return browser.element('//div[contains(@class,"group form-error")]//input'); }
+  get signUpArea () { return browser.element('(//div[@class="form_content clearfix"])[1]'); }
+  get emailField () { return browser.element('//input[@id="email_create"]'); }
   get createAccountButton () { return browser.element('//button[@id="SubmitCreate"]'); }
   get registeredEmailField () { return browser.element('//label[@for="email"]//following-sibling::input'); }
   get registeredPasswordField () { return browser.element('//input[@type="password"]'); }
@@ -20,10 +21,13 @@ class loginPage extends Page {
   /**
    * Decides to sign up
    */
-  goToSignUp (user) {
+  goToSignUp (email) {
+    const signUpAreaPos = browser.elementIdLocation(this.signUpArea.value.ELEMENT);
+    browser.scroll(signUpAreaPos.value.x, signUpAreaPos.value.y);
     this.emailField.waitForEnabled();
-    this.emailField.setValue(user.email);
+    this.emailField.setValue(email);
     this.createAccountButton.waitForEnabled();
     this.createAccountButton.click();
   }
 }
+export default new loginPage();
