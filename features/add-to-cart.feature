@@ -1,5 +1,5 @@
-Feature: Home Page
-  Scenario: Automation of the Home Page
+Feature: Add To Cart
+  Scenario: Automation of Add to Cart Feature
 
     Given User goes to the Home Page
     When User goes to Login Page
